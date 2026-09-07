@@ -1,0 +1,199 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="/home/jeff/CN/web/report.css" rel="stylesheet">
+    <style> 
+    .blue{
+      background: #dbe9f4;
+    }
+    .green{
+      background: #DFF0E2;
+    }
+
+    .redt{
+      color: red;
+    }
+
+    .greent{
+      color: green;
+    }
+
+
+    </style>
+    <title>Daily Report</title>
+    <meta name="description" content="Report example">
+  </head>
+
+  <body>
+
+    <article id="cover">
+      
+      <h1>{{ mydate }}</h1>
+      <h2>Daily Report for 
+      CN Mile 329.90 Prince George Subdivision</h2>
+      
+      <address>
+        <span>Symroc</span>
+        #209, 7879 8 St NE 
+        Calgary, Alberta, Canada 
+        T2E8A2
+      </address>
+      <address>
+        https://www.symroc.com
+
+      </address>
+    </article>
+
+   <!-- <article id="contents">
+      <h2>Table of contents</h2>
+      <h3>Part one</h3>
+      <ul>
+        <li><a href="#columns-title"></a></li>
+        <li><a href="#skills-title"></a></li>
+      </ul>
+
+      <h3>Part two</h3>
+      <ul>
+        <li><a href="#offers-title"></a></li>
+        <li><a href="#chapter-title"></a></li>
+        <li><a href="#typography-title"></a></li>
+      </ul>
+    </article>-->
+
+      
+    <article>
+      <h2>Figure 1. Direction Orientation</h2>
+
+      <img src="/home/jeff/CN/329.png">
+    </article>
+
+    <article id ="notetoreader">
+      <h2>
+      Note to Readers: 
+    </h2>
+    <p>This report is based on beta testing the signals at 0.04 Hz or larger. Theoretical measurement 
+        error is +/- 0.5 mm. The original measurement error tested at shaker table is +/- 0.005 mm
+    </p>  
+    </article>
+ 
+
+
+
+    <article >
+        <h2>Table 1. (Beta) Daily Substantial Event – {{ mydate }} Maximum Dynamic Displacement (mm)</h2>
+        {{ pt1 }}
+      </article>
+
+
+    <article id="longtable2">
+        <h2>Table 3. (Beta) Daily Maximum Total (Max-Min) Dynamic Displacements (mm >0.04Hz)</h2>
+        {{ cnmaxl }}
+    </article>
+
+
+
+    <article id="g5">
+        <h2>Graph 1 (Beta). {{ mydate }} Daily Substantial Event – Maximum Dynamic Displacement (mm >0.04Hz) </h2>
+        <img  src="{{ g5 }}" >
+      </article>
+  
+      <article id="g6">
+        <h2>Graph 2 (Beta). Daily Maximum Total Dynamic Displacement (Max-Min) in mm (09/16/2022-current date)</h2>
+        <img  src="{{ g6 }}">
+      </article>
+  
+      <article id="g7">
+        <h2>Graph 3 (Beta). Top Daily Maximum Total Dynamic Displacement (Max-Min) in mm (09/16/2022-current date)</h2>
+        <img  src="{{ g7 }}">
+      </article>
+  
+      <article id="g8">
+        <h2>Graph 4 (Beta). Bottom Daily Maximum Total Dynamic Displacement (Max-Min) in mm (09/16/2022-current date)</h2>
+        <img  src="{{ g8 }}">
+      </article>
+
+    <article id="expinfo">
+      <h2> Whole Day Plots</h2>
+      <h3 class="greent">
+      Green = Train 
+    </h3>
+    <h3 class="redt">Red= Top Events</h3> 
+    <h3>Channel Labels:</h3>
+    <h3>Vertical (BSZ)</h3>
+    <h3>Longitudinal (BSN)</h3>
+    <h3>Lateral (BSE)</h3>
+    <h3>Time is in (PST)</h3>
+    <h3>y-axis units in (mm)</h3>
+    </article>
+    {% for wh in wholeDay %}
+
+    <!--
+    {% if loop.index ==1 %}
+    <article>
+      <h2>Graph 5. TEA-Bent #11 Right Top Bearing</h2>
+      <img src="{{ wh }}">
+    
+    {% elif loop.index ==2 %}
+    <article>
+      <h2>Graph 6. TWE-Bent #11 Left Top Bearing </h2>
+      <img src="{{ wh }}">
+
+    {% elif loop.index ==3 %}
+    <article>
+      <h2>Graph 7. BEA-Bent #11 Right Pedestal</h2>
+      <img src="{{ wh }}">
+
+    {% else %}
+    <article>
+      <h2>Graph 8. BWE-Bent #11 Left Pedestal</h2>
+      <img src="{{ wh }}">
+
+    {% endif %}
+
+    -->
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+  </article>
+    {% endfor %}
+
+<article id="chapter">
+  <h2> Appendix </h2>
+</article>
+
+    {% for myim in topEast %}
+      {% set te = topEast[loop.index-1] %}
+      {% set tw = topWest[loop.index-1] %}
+      {% set be = bottomEast[loop.index-1] %}
+      {% set bw = bottomWest[loop.index-1] %}
+      {% set mt = myTime[loop.index-1] %}
+      {% set pinfo = myInfo[loop.index-1] %}
+    <article >
+    <h2 >{{ pinfo }}: Top Right-{{ mt }}</h2>
+    <img src="{{ te }}"   />
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+    </article>
+    <article>
+    <h2 >{{ pinfo }}: Top Left-{{ mt }}</h2>
+    <img src="{{ tw }}" />
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+    </article>
+
+    <article >
+      <h2 >{{ pinfo }}: Bottom Right-{{ mt }}</h2>
+    <img src="{{ be }}" />
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+    </article>
+
+    <article>
+    <h2 >{{ pinfo }}: Bottom Left-{{ mt }}</h2>
+    <img src="{{ bw }}" />
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+    </article>
+    {% endfor %}
+    
+  </body>
+</html>

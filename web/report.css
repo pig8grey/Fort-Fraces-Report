@@ -1,0 +1,431 @@
+@font-face {
+  font-family: Fira Sans;
+  font-weight: 400;
+  src: url(firasans-regular.otf);
+}
+@font-face {
+  font-family: Fira Sans;
+  font-style: italic;
+  font-weight: 400;
+  src: url(firasans-italic.otf);
+}
+@font-face {
+  font-family: Fira Sans;
+  font-weight: 300;
+  src: url(firasans-light.otf);
+}
+@font-face {
+  font-family: Fira Sans;
+  font-style: italic;
+  font-weight: 300;
+  src: url(firasans-lightitalic.otf);
+}
+@font-face {
+  font-family: Fira Sans;
+  font-weight: 700;
+  src: url(firasans-bold.otf);
+}
+
+@page {
+
+  img { image-resolution: 300dpi }
+  size: A4 portrait;
+  margin:0;
+  margin-top: 10mm;
+  margin-left: 5mm;
+  margin-right: 1mm;
+
+
+  @top-left {
+    background: #fbc847;
+    content: counter(page);
+    height: 5mm;
+    text-align: center;
+    width: 5mm;
+  }
+
+  @left-middle {
+    content:'';
+    margin-left:5mm;
+
+  }
+
+  @top-center {
+    background: #fbc847;
+    content: '';
+    display: flex;
+    height: .05cm;
+    opacity: .5;
+    width: 100%;
+    margin-top:3mm;
+  }
+
+  @top-right {
+    content: string(heading);
+    font-size: 10pt;
+    height: 5mm;
+    margin-right:10mm;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  @bottom-left-corner{
+
+    margin-top:-17mm;
+    margin-left: 0mm;
+    background-size:cover;
+    content:url('symroc.png');
+  }
+  @bottom-center {
+    margin-top:-20mm;
+    color:#169396;
+    font-weight: 400;
+    display:flex;
+    width:25%;
+    content:'Symroc Inc. 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2';
+  }
+}  
+
+
+
+
+@page :blank {
+  @top-left { background: none; content: '' }
+  @top-center { content: none }
+  @top-right { content: none }
+}
+@page no-chapter {
+  @top-left { background: none; content: none }
+  @top-center { content: none }
+  @top-right { content: none }
+}
+@page :first {
+  background: url(report-cover.jpg) no-repeat bottom;
+  background-size: auto 60%;
+  background-position: fixed;
+  top:40%;
+  left:0;
+  margin: 7mm 0 0 0;
+  background-color: #DADAE7;
+
+  @bottom-center{
+    background:url('symroc.png');
+    width:125%;
+    margin-top:-27mm;
+    margin-left: -45mm;
+    content:'';}
+
+  @bottom-left-corner{
+      content:none;
+      
+  }
+}
+
+
+@page chapter {
+  background: #D4FEF9;
+  margin: 0 0 0 0;
+  @top-left { content: none }
+  @top-center { content: none }
+  @top-right { content: none }
+  @bottom-center {content:none}
+  @bottom-left-corner {content:none}
+}
+
+
+
+
+@page longtable {
+
+    padding-bottom:1in;
+}
+
+@page graph{
+  margin-left: 3mm;
+  margin-top: 10mm;
+  @bottom-center {content:none}
+  @bottom-left-corner {content:none}
+}
+
+@page explain{
+
+  text-align: left;
+  line-height: 2;
+  @bottom-center {line-height: 1.2;}
+}
+
+img{
+  width: 100%;
+  margin: 2mm -10mm 2mm -5mm;
+  align-content: center;
+}
+
+
+#longtable{
+  page:longtable;
+}
+
+
+#longtable2{
+  page:longtable;
+}
+
+#longtable3
+{
+  page:longtable;
+}
+
+#longtablea{
+  page:longtable;
+
+}
+
+#notetoreader{
+
+  line-height: 2;
+  page:explain;
+ 
+}
+
+#notetoreader p {
+  margin: 1in;
+  font-size: 16pt;
+  text-align: left;
+}
+
+
+#g1{
+  align-content: center;
+ 
+  page:graph;
+}
+#g2{
+  align-content: center;
+
+  page:graph
+}
+
+#g3{
+  align-content: center;
+
+  page:graph;
+}
+#g4{
+  align-content: center;
+
+  page:graph
+}
+
+#g5{
+  align-content: center;
+
+  page:graph
+}
+
+#g6{
+  align-content: center;
+
+  page:graph
+}
+
+#g7{
+  align-content: center;
+
+  page:graph
+}
+
+#g8{
+  align-content: center;
+
+  page:graph
+}
+
+
+table {
+  page-break-inside: auto;
+  width: 100%;
+  align-content: center;
+  border-collapse: collapse;
+  background: #ededee;
+
+}
+
+
+tr{
+  page-break-inside:avoid; 
+  page-break-after:auto;
+  border: 1px solid #888888;
+}
+
+th {
+
+   border: 1px solid #888888;
+   word-break: break-all;
+}
+
+td{
+ border: 1px solid #888888;
+}
+
+
+html {
+  color: #393939;
+  font-family: Fira Sans;
+  font-size: 11pt;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+h1 {
+  color: #169396;
+  font-size: 38pt;
+  margin-top: 3cm;
+  margin-left: 3cm;
+  margin-bottom: 0;
+  margin-right:0;
+  width:100%;
+  page: no-chapter;
+  line-height: 0;
+
+
+}
+h2, h3, h4 {
+  color: #169396;
+  font-weight: 400;
+  margin-left:15mm;
+}
+
+
+h2 {
+  break-before: always;
+  font-size: 24pt;
+  string-set: heading content();
+  margin: 5mm 5mm 5mm 5mm;
+
+}
+h3 {
+  font-weight: 300;
+  font-size: 15pt;
+
+}
+h4 {
+  font-size: 13pt;
+}
+
+p{
+  text-align: center;
+}
+
+article p {
+  text-align: left;
+  margin-top: 15mm;
+  margin-bottom: 15mm;
+  margin-right: 5mm;
+  margin-left: 10mm;
+}
+
+#cover {
+  align-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  margin:5mm 0 -10mm 0;
+  height: 260mm;
+}
+#cover h1{
+  text-align: center;
+  margin-left:0;
+  margin-top:2cm;
+
+}
+#cover h2{
+  break-before: avoid;
+  text-align: center;
+  margin-left:0;
+  margin-top:-6cm;
+
+}
+
+#cover address {
+  background: #D4FEF9;
+  flex: 1 50%;
+  margin: 0 -2cm;
+  padding: 1cm 0;
+  white-space: pre-wrap;
+}
+#cover address:first-of-type {
+  padding-left: 3cm;
+}
+
+#conver address span{
+
+    font-weight: 1200;
+    font-size: 40pt;
+ 
+}
+
+#contents {
+ /* break-before: right;
+  break-after: left;*/
+  page: no-chapter;
+  padding-bottom:1in;
+ 
+}
+#contents h2 {
+  font-size: 24pt;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+
+}
+#contents h3 {
+  font-weight: 500;
+  margin: 3em 0 1em;
+}
+#contents h3::before {
+  background: #fbc847;
+  content: '';
+  display: block;
+  height: .08cm;
+  margin-bottom: .25cm;
+  width: 2cm;
+}
+#contents ul {
+  list-style: none;
+  padding-left: 0;
+  padding-bottom:1in;
+}
+#contents ul li {
+  border-top: .25pt solid #c1c1c1;
+  margin: .25cm 0;
+  padding-top: .25cm;
+  
+}
+#contents ul li::before {
+  color: #fbc847;
+  content: '• ';
+  font-size: 40pt;
+  line-height: 16pt;
+  vertical-align: bottom;
+}
+
+
+#chapter {
+  align-items: center;
+  display: flex;
+  height: 297mm;
+  justify-content: center;
+  page: chapter;
+}
+#chapter h2{
+  margin:0;
+}
+
+#expinfo{
+  margin-top: 25%;
+  margin-left: 30%;
+  display: block;
+  flex-direction: column;
+  page:explain;
+}
+

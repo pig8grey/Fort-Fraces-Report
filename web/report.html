@@ -1,0 +1,273 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="/home/jeff/CN/web/report.css" rel="stylesheet">
+    <style> 
+    .blue{
+      background: #dbe9f4;
+    }
+    .green{
+      background: #DFF0E2;
+    }
+
+    .redt{
+      color: red;
+    }
+
+    .greent{
+      color: green;
+    }
+
+
+    </style>
+    <title>Daily Report</title>
+    <meta name="description" content="Report example">
+  </head>
+
+  <body>
+
+    <article id="cover">
+      
+      <h1>{{ mydate }}</h1>
+      <h2>Daily Report for 
+      CN Mile 329.90 Prince George Subdivision</h2>
+      
+      <address>
+        <span>Symroc</span>
+        #209, 7879 8 St NE 
+        Calgary, Alberta, Canada 
+        T2E8A2
+      </address>
+      <address>
+        https://www.symroc.com
+
+      </address>
+    </article>
+
+   <!-- <article id="contents">
+      <h2>Table of contents</h2>
+      <h3>Part one</h3>
+      <ul>
+        <li><a href="#columns-title"></a></li>
+        <li><a href="#skills-title"></a></li>
+      </ul>
+
+      <h3>Part two</h3>
+      <ul>
+        <li><a href="#offers-title"></a></li>
+        <li><a href="#chapter-title"></a></li>
+        <li><a href="#typography-title"></a></li>
+      </ul>
+    </article>-->
+
+      
+    <article>
+      <h2>Figure 1. Direction Orientation</h2>
+
+      <img src="/home/jeff/CN/329.png">
+    </article>
+
+    <article id ="notetoreader">
+      <h2>
+      Note to Readers: 
+    </h2>
+    <p>Dynamic displacement is obtained by integration of velocity data from the sensors.  
+Symroc selected strong motion sensor based on the strong train load impact, the sensors installed have accurate displacement measurement down to 0.3Hz.  
+The system has been tested with comparison of LVDT type of measurement and found the magnitude of the displacement to be accurate using shaker table comparison at 0.3Hz, 
+0.4Hz, 0.5Hz….. 1Hz, 2Hz …. 
+interval test points to the higher frequency range and has demonstrated reliable results in various field settings.  
+The systems are capable to obtain dynamic displacement of subject bridge at any location of the bridge – 
+where LVDTs or Displacement transducers requires scaffold or rigid support that is not moving with respect to the subject bridge.
+    </p>  
+    </article>
+
+    <article id ="contents">
+      <h2> What is in this report</h2>
+      <p>In this report, an event is defined as the difference of the measured min and max dynamic displacement exceeds 0.1 mm for top sensors, 0.03 mm for bottom sensors. </p>
+      <ul>
+        <li>Table 1 – Daily substantial events: Table containing events triggered at similar times by all sensors.</li>
+        <li>Table 2 – Daily Events Triggered by Top Sensors Dynamic Displacements (mm): Table containing events triggered at similar times by the top 
+          two sensors at minimum but not all.</li>
+        <li>Table 2a – Daily Events Triggered by the Bottom East or Bottom West Sensor Dynamic Displacements (mm): Table containing events triggered by the Bottom East Sensor </li>
+        <li>Table 3 – Daily Maximum Total (Max-Min): Containing the result of all the difference in 
+          maximum dynamic displacement and the minimum since the beginning of the recording date. Starting in July 19,2023, the reported values are no longer daily max-daily min, 
+        but using max-min from each event then report the largest value</li>
+        <li>Graph 1 – {{ mydate }} Daily Substantial Event – Maximum Dynamic Displacement (mm): Bar graph that contains all today's events in table 1</li>
+        <li>Graph 2 – Daily Maximum Total Dynamic Displacement (Max-Min) in mm (05/04/2023-current date): Bar graph that plots today and previous 14 days of maximum daily displacements on all sensors</li>
+        <li>Graph 3 – Top Daily Maximum Total Dynamic Displacement: similar plot to Graph 2. but only plotting only the top sensors, where the dashed line represents the maximum dynamic displacement since the start of the recording date</li>
+        <li>Graph 4 – Bottom Daily Maximum Total Dynamic Displacement: similar plot to Graph 2. but only plotting only the bottom sensors, where the dashed line represents the maximum dynamic displacement since the start of the recording date</li>
+        <li>Graph 5 – TEA-Bent #11 Right Top Bearing: Plotting the dynamic displacement of the sensor at the right top bearing at bent #11 of that day</li>
+        <li>Graph 6 – TWE-Bent #11 Left Top Bearing: Plotting the dynamic displacement of the sensor at the left top bearing at bent #11 of that day</li>
+        <li>Graph 7 – BEA-Bent #11 Right Pedestal: Plotting the dynamic displacement of the right pedestal at bent #11 of that day</li>
+        <li>Graph 8 – BWE-Bent #11 Left Pedestal: Plotting the dynamic displacement of the left pedestal at bent #11 of that day</li>
+        <li>Graph 9. {{ mydate }}, Williams Lake Airport Hourly Temperature °C: Plotting hourly temperature from 00:00-23:59 of {{ mydate }} from Williams Lake Airport weather station</li>
+        <li>Graph 10. {{ mydate }}, Sensors Battery Voltage: Plot hourly battery volrage from 00:00-23:59 of {{ mydate }}
+        <li>Appendix: Plot of all daily events shown in Table 1. and Table 2. for all availiable sensors</li>
+      </ul>
+    </article>
+
+    <article id="longtable3">
+      <h2>Table 1 – Daily substantial events – {{ mydate }} Maximum Dynamic Displacement (mm)</h2>
+      <p> In this table, criteria for each event recorded is the differential between the max and min measured dynamic displacement values which
+        exceeds 0.1 mm for the top sensors and 0.03 mm for the bottom sensors. Each event is captured when all sensors detects a contiguous activity over a time period. 
+        In addition, all available sensors, have to satisfy the trigger condition at a similar time.
+        </p>
+      {{ pt }}
+    </article>
+
+
+    <article>
+      <h2>Table 2 – Daily Events Triggered by Top Sensors Dynamic Displacements (mm)</h2>
+      <p>This table captures other notable events as detected by the top sensors (max-min ≥ 0.1mm), despite the bottom sensors movements do not all meet the threshold. 
+        Event criteria is exactly the same with what was defined in Table 1. 
+        The differential between the max and min measured dynamic displacement values during each event do not necessarily constitute a substantial event. 
+        </p>
+      {{tpt}}
+    </article>
+
+    <article id="longtablea">
+      <h2>Table 2a – Daily Events Triggered by the Bottom East Sensor or Bottom West Sensor Dynamic Displacements (mm)</h2>
+      <p>This table captures other notable events as detected by the Bottom East Sensor (max-min ≥ 0.1mm), despite the other sensors movements do not all meet the threshold. 
+        The differential between the max and min measured dynamic displacement values during each event do not necessarily constitute a substantial event. 
+        </p>
+      {{btable}}
+    </article>
+
+    <article id="longtable">
+      <h2>Table 3 – Daily Maximum Total (Max-Min) Dynamic Displacements (mm)</h2>
+      <p>This table represents a condensed daily summary of the maximum measured dynamic displacements of each sensor for the specific day.
+        Each of these maximum sensor dynamic displacements may or may not occur on the same event.</p>
+      {{ cnmax }}
+    </article>
+
+
+
+    <article id="g1">
+      <h2>Graph 1. {{ mydate }} Daily Substantial Event – Maximum Dynamic Displacement (mm)</h2>
+      <img  src="{{ g1 }}" >
+    </article>
+
+    <article id="g2">
+      <h2>Graph 2. Daily Maximum Total Dynamic Displacement (Max-Min) in mm (05/04/2023-current date)</h2>
+      <img  src="{{ g2 }}">
+    </article>
+
+    <article id="g3">
+      <h2>Graph 3. Top Daily Maximum Total Dynamic Displacement (Max-Min) in mm (05/04/2023-current date)</h2>
+      <img  src="{{ g3 }}">
+    </article>
+
+    <article id="g4">
+      <h2>Graph 4. Bottom Daily Maximum Total Dynamic Displacement (Max-Min) in mm (05/04/2023-current date)</h2>
+      <img  src="{{ g4 }}">
+    </article>
+
+
+    <article id="expinfo">
+      <h2> Whole Day Plots</h2>
+      <h3 class="greent">
+      Green = Train 
+    </h3>
+    <h3 class="redt">Red= Top Events</h3> 
+    <h3>Channel Labels:</h3>
+    <h3>Vertical (BSZ)</h3>
+    <h3>Longitudinal (BSN)</h3>
+    <h3>Lateral (BSE)</h3>
+    <h3>Time is in (PST)</h3>
+    <h3>y-axis units in (mm)</h3>
+    </article>
+    {% for wh in wholeDay %}
+
+    
+    {% if loop.index ==1 %}
+    <article>
+      <h2>Graph 5. TEA-Bent #11 Right Top Bearing</h2>
+      <img src="{{ wh }}">
+    
+    {% elif loop.index ==2 %}
+    <article>
+      <h2>Graph 6. TWE-Bent #11 Left Top Bearing </h2>
+      <img src="{{ wh }}">
+
+    {% elif loop.index ==3 %}
+    <article>
+      <h2>Graph 7. BEA-Bent #11 Right Pedestal</h2>
+      <img src="{{ wh }}">
+
+    {% else %}
+    <article>
+      <h2>Graph 8. BWE-Bent #11 Left Pedestal</h2>
+      <img src="{{ wh }}">
+
+    {% endif %}
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+  </article>
+    {% endfor %}
+  <article>
+    <h2>Graph 9. {{ mydate }}, Williams Lake Airport Hourly Temperature °C</h2>
+    <img src="{{gTemp}}"> 
+  </article>  
+<!---->
+  <article>
+    <h2>Graph 10. {{ mydate }}, Sensors Battery Voltage</h2>
+    <img src="{{battery}}"> 
+  </article> 
+<!--
+  <article>
+    <h2>Graph 11. {{ mydate }}, BEA Displacemnt plot between 09:00-14:00</h2>
+    <img src="{{special}}"> 
+  </article> 
+-->
+<article id="chapter">
+  <h2> Appendix </h2>
+</article>
+
+    {% for myim in topEast %}
+      {% set te = topEast[loop.index-1] %}
+      {% set tw = topWest[loop.index-1] %}
+      {% set be = bottomEast[loop.index-1] %}
+      {% set bw = bottomWest[loop.index-1] %}
+      {% set mt = myTime[loop.index-1] %}
+      {% set pinfo = myInfo[loop.index-1] %}
+
+    {% if te is defined and te|length > 1 %}
+    <article >
+    <h2 >{{ pinfo }}: Top Right-{{ mt }}</h2>
+    <img src="{{ te }}"   />
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+    </article>
+    {% endif %}
+
+    {% if tw is defined and tw|length > 1 %}
+    <article>
+    <h2 >{{ pinfo }}: Top Left-{{ mt }}</h2>
+    <img src="{{ tw }}" />
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+    </article>
+    {% endif %}
+
+    {% if be is defined and be|length > 1 %}
+    <article >
+      <h2 >{{ pinfo }}: Bottom Right-{{ mt }}</h2>
+    <img src="{{ be }}" />
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+    </article>
+    {% endif %}
+
+    {% if bw is defined and bw|length > 1 %}
+    <article>
+    <h2 >{{ pinfo }}: Bottom Left-{{ mt }}</h2>
+    <img src="{{ bw }}" />
+    <!-- <p>Sensor produced by Symroc Inc.</p>
+    <p> 7879, 8 St NE Calgary, Alberta, Canada T2E 8A2</p> -->
+    </article>
+    {% endif %}
+
+    {% endfor %}
+    
+  </body>
+</html>
